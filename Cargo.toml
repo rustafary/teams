@@ -1,0 +1,11 @@
+[package]
+name = "jah"
+version = "0.1.0"
+authors = ["rustaroots <rootsrustafari@gmail.com>"]
+edition = "2021"
+description = "Rustaroots is a backend framework focused on modularity, security, and real-time capabilities."
+license = "AGPL-3.0"
+repository = "https://github.com/rustaroots/jah"
+homepage = "https://github.com/rustaroots/jah"
+
+[dependencies]
