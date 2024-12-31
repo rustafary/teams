@@ -4,20 +4,16 @@ use std::process::Command;
 pub struct Jah {}
 
 impl Jah {
-    pub fn new() -> Self {
-        Self {}
-    }
-
-    pub fn commit(self) -> Result<(), InquireError> {
+    pub fn commit() -> Result<(), InquireError> {
         if zuu() {
             let subject = Text::new("Enter the commit subject :").prompt()?;
             let body = Editor::new("The commit body :").prompt()?;
             let why = Editor::new("Explain the  changes :")
                 .with_editor_command("vim".as_ref())
                 .prompt()?;
-            let message = format!("{}\n\n{}\n\n{}", subject, body, why);
+            let message = format!("{subject}\n\n{body}\n\n{why}");
             let ok = Command::new("git")
-                .args(&["commit", "-m", message.as_str()])
+                .args(["commit", "-m", message.as_str()])
                 .current_dir(".")
                 .spawn()
                 .expect("Failed to run git")
@@ -37,6 +33,26 @@ impl Jah {
     }
 }
 
-fn zuu() -> bool {
+fn clear() -> bool {
+    #[cfg(target_os = "linux")]
+    Command::new("clear")
+        .status()
+        .expect("Failed to clear screen");
+    #[cfg(target_os = "windows")]
+    Command::new("cls")
+        .status()
+        .expect("Failed to clear screen");
     true
+}
+
+fn zuu() -> bool {
+    clear();
+    Command::new("tux")
+        .current_dir(".")
+        .spawn()
+        .expect("Failed to run tux")
+        .wait()
+        .expect("Failed to wait on child")
+        .success()
+        && clear()
 }

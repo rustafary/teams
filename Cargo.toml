@@ -7,9 +7,7 @@ description = "Rustaroots is a backend framework focused on modularity, security
 license = "AGPL-3.0"
 repository = "https://github.com/rustaroots/jah"
 homepage = "https://github.com/rustaroots/jah"
-
+categories = ["development-tools"]
+keywords = ["versionning","testing","standard","commit"]
 [dependencies]
-ignore = "0.4.23"
 inquire = { version = "0.7.5", features = ["console", "date", "editor"] }
-tar = "0.4.43"
-tempfile = "3.14.0"
