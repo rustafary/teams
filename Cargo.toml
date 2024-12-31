@@ -9,3 +9,6 @@ repository = "https://github.com/rustaroots/jah"
 homepage = "https://github.com/rustaroots/jah"
 
 [dependencies]
+clap = "4.5.23"
+ignore = "0.4.23"
+tar = "0.4.43"
