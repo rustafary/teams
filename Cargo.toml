@@ -10,4 +10,5 @@ homepage = "https://github.com/rustaroots/jah"
 categories = ["development-tools"]
 keywords = ["versionning","testing","standard","commit"]
 [dependencies]
+clap = "4.5.23"
 inquire = { version = "0.7.5", features = ["console", "date", "editor"] }
