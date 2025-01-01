@@ -86,7 +86,7 @@ impl Jah {
 
     pub fn log() {
         assert!(Command::new("git")
-            .args(["log", "--oneline", "-n", "5"])
+            .args(["log", "-n", "5"])
             .current_dir(".")
             .spawn()
             .expect("Failed to run git")
